@@ -38,19 +38,19 @@
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="{{route('admin.list')}}">
                     <i class="align-middle" data-feather="square"></i> <span class="align-middle">Admins List</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="{{route('users.user.list')}}">
                     <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Users List</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a class="sidebar-link" href="#">
+                <a class="sidebar-link" href="{{route('products.product.list')}}">
                     <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Products List</span>
                 </a>
             </li>

@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreAdminRequest;
-use App\Http\Requests\UpdateAdminRequest;
-use App\Models\Admin;
+use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
+use Symfony\Component\HttpFoundation\Request;
 
-class AdminController extends Controller
+class UserController extends Controller
 {
-
     public function __construct()
     {
-        $admin = new Admin;
+        $this->users = new User;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,10 +21,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $title = 'Danh sách quản trị viên';
-
-        $adminsList = Admin::all();
-        return view('admin.admin-list', compact('adminsList','title'));
+        $title = 'Danh sách người dùng';
+        $usersList = User::all();
+        return view('user.user-list', compact('title', 'usersList'));
     }
 
     /**
@@ -31,85 +31,91 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $title = 'Tạo mới quản trị viên';
-        return view('admin.admin-create', compact('title'));
+        $title = 'Thêm người dùng mới';
+        return view('user.create', compact('title'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAdminRequest  $request
+     * @param  \App\Http\Requests\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAdminRequest $request)
+    public function store(StoreUserRequest $request)
     {
-        $admin = Admin::create([
+
+        $user = User::create([
             'name'      => $request->name,
             'email'     => $request->email,
             'password'  => $request->password,
         ]);
 
-        return redirect()->route('admin.admin-list');
+        return redirect()->route('users.user.list');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(User $user)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($AdminId)
+    public function edit($userId)
     {
         $title = 'Cập nhật thông tin';
 
-        $admin = Admin::find($AdminId);
+        $user = User::find($userId);
 
-        return view('admin.admin-edit', compact('title','admin'));
-
+        return view('user.edit', compact('title', 'user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAdminRequest  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Http\Requests\UpdateUserRequest  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAdminRequest $request, Admin $admin, $AdminId)
+    public function update(UpdateUserRequest $request, User $user, $id)
     {
-        $admin = Admin::find($AdminId);
+        $user = User::find($id);
 
-        $admin->update([
+        if(!$user) {
+            abort(404);
+        }
+
+        $user ->update([
             'name'      => $request->name,
             'email'     => $request->email,
             'password'  => $request->password,
         ]);
+
+        return redirect()->back();
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function delete($id)
     {
         if(!empty($id)) {
-            $user = Admin::find($id);
+            $user = User::find($id);
             $user->delete();
         }
         return redirect()->back();

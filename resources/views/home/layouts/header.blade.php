@@ -11,7 +11,7 @@
                 <i class="fa-solid fa-user">&nbsp My Account	&nbsp 	&nbsp</i>
             </div>
             <div class="top-header-icon">
-                <a href="{{ route('login') }}">
+                {{-- <a href="{{ route('login') }}"> --}}
                     <i class="fa-solid fa-unlock">&nbsp Log In</i>
                 </a>
             </div>

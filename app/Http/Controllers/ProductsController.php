@@ -75,10 +75,12 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(Products $products)
+    public function edit($id)
     {
         $title = 'Chỉnh sửa sản phẩm';
-        return view('user.products.edit', compact('title'));
+        $product = Products::find($id);
+
+        return view('user.products.edit', compact('title', 'product'));
     }
 
     /**
