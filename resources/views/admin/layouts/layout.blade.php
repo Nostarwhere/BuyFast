@@ -7,7 +7,12 @@
     <title>Adminstration</title>
 </head>
 <body>
-    @include('admin.layouts.layout')
-    
+    @include('admin.layouts.sidebar')
+
+    @section('content')
+        <div class="container-fluid">
+         @yield('content')
+        </div>
+    @endsection
 </body>
 </html>

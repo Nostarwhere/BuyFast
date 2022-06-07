@@ -110,13 +110,11 @@ class ProductsController extends Controller
      * @param  \App\Models\Products  $products
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
+        $product = Products::find($id);
+        $product->delete();
 
-        if(!empty($id)) {
-            $products = Products::find($id);
-            $products->delete($id);
-        }
         return redirect()->back();
     }
 }

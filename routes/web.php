@@ -17,35 +17,29 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //Home
-Route::get('/', function () {
-    return view('home.index');
-});
+
 
 //Auth login users
 Auth::routes();
 
 
-// Route::prefix('home')->name('home.')->group(function() {
-//     Route::get('/', [HomeController::class, 'index'])->name('home');
-
 // });
 
 //Admin
-// Route::prefix('admin')->name('admin.')->group(function(){
-//     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-// });
+Route::prefix('admin')->name('admin.')->group(function(){
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+});
 
 
 
 //Products
 Route::prefix('products')->name('products.')->group(function() {
-    Route::get('/',      [ProductsController::class, 'index'])->name('product.list');
+    Route::get('/',[ProductsController::class, 'index'])->name('product.list');
     Route::get('/create',[ProductsController::class,'create'])->name('product.create');
     Route::post('/store',[ProductsController::class, 'store'])->name('product.store');
-    Route::get('/edit',  [ProductsController::class,'edit'])->name('product.edit');
-    Route::post('/update',[ProductsController::class, 'update'])->name('product.update');
-    Route::get('/destroy',[ProductsController::class,'destroy'])->name('product.destroy');
-
+    Route::get('/edit/{id}',  [ProductsController::class,'edit'])->name('product.edit');
+    Route::post('/update/{id}',[ProductsController::class,'update'])->name('product.update');
+    Route::get('/delete/{id}',[ProductsController::class,'delete'])->name('product.delete');
 
 });
 

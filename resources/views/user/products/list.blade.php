@@ -33,7 +33,7 @@
                                 <a href="{{route('products.product.update', ['id'=>$product->id])}}" class="btn btn-warning btn-sm">Sửa</a>
                             </td>
                             <td>
-                                <a href="{{route('products.product.destroy', ['id'=>$product->id])}}" class="btn btn-danger btn-sm">Xóa</a>
+                                <a href="{{route('products.product.delete', ['id'=>$product->id])}}" class="btn btn-danger btn-sm">Xóa</a>
                             </td>
                         </tr>
                     @endforeach
