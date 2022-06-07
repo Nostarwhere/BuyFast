@@ -3,9 +3,10 @@
 .top-header {
     background-color: white;
     font-size: 13px;
-    /* margin-left: 235px; */
     padding: 5px 0;
-    display: inline-block;
+    height: 30px;
+    display: flex;
+
 }
 
 .top-header .top-header-link {
@@ -16,10 +17,23 @@
     margin-bottom: 0px;
 }
 
+.top-header-left {
+    width: 4300px;
+}
 
+.top-header-right {
+    height: 30px;
+    width: 500px;
+    display: flex;
+}
+
+.bottom-header {
+    padding-left: 400px;
+}
 .bottom-header ul {
     margin-bottom: 0px;
     padding: 0;
+
 }
 
 .bottom-header ul li {

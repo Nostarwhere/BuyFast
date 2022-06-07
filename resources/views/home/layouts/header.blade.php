@@ -7,11 +7,13 @@
             </div>
         </div>
         <div class="top-header-right">
-            <div class="top-header-link">
-                <i class="fa-solid fa-user"></i>
-                <p>	&nbsp My Account	&nbsp 	&nbsp</p>
-                <i class="fa-solid fa-unlock"></i>
-                <p>	&nbsp Log In</p>
+            <div class="top-header-icon">
+                <i class="fa-solid fa-user">&nbsp My Account	&nbsp 	&nbsp</i>
+            </div>
+            <div class="top-header-icon">
+                <a href="{{ route('login') }}">
+                    <i class="fa-solid fa-unlock">&nbsp Log In</i>
+                </a>
             </div>
         </div>
 
@@ -26,14 +28,14 @@
                 <div class="p-2">
                     <form class="d-flex" role="search">
                         <input class="form-control" type="search" placeholder="Search products..." aria-label="Search">
-                        <button class="fa-regular fa-magnifying-glass" type="submit"></button>
+                        <button value="Search" type="submit">Search</button>
                     </form>
                 </div>
                 <div class="p-2">
                     <i class="fa-regular fa-heart"></i>
                 </div>
                 <div class="p-2">
-                    <i class="far fa-shopping-cart"></i>
+                    <i class="bi bi-cart"></i>
                 </div>
                 <div class="p-2">
                     Total: $0.00
@@ -44,7 +46,9 @@
     <hr class="header-line">
     <div class="bottom-header">
         <ul>
-            <li>Home</li>
+            <li>
+                <a href="# ">Home</a>
+            </li>
             <li>Sections</li>
             <li>Shop</li>
             <li>Blog</li>

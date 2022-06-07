@@ -14,17 +14,15 @@
 
 </head>
 <body>
-    <div class="container">
-    {{-- header  --}}
-    @include('home.layouts.header')
+     <!-- header -->
+     @include('home.layouts.header')
+     <!-- end header -->
+     <!-- content  -->
+     @yield('content')
 
-    {{-- Body  --}}
-    @section('content')
-        
-    @endsection
-
-    {{-- Footer  --}}
-    @include('home.layouts.footer')
-    </div>
+     <!-- /content  -->
+     <!-- footer -->
+     @include('home.layouts.footer')
+     <!-- end footer -->
 </body>
 </html>
