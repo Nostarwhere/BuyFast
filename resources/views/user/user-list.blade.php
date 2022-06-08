@@ -4,8 +4,8 @@
 @section('content')
 
     <div class="admin-list">
-        <h1>Danh sách quản trị viên</h1>
-        <a class="btn btn-primary" href=" {{route('admin.create')}} ">Thêm người dùng</a>
+        <h1>Danh sách nguời dùng</h1>
+        <a class="btn btn-primary" href=" {{route('users.user.create')}} ">Thêm người dùng</a>
         <hr>
         <table class="table table-bordered table-hover">
             <thead>
@@ -17,17 +17,17 @@
                     <th width="5%">xóa</th>
                 </tr>
                 <tbody>
-                    @if (!empty($adminsList))
-                        @foreach ($adminsList as $id => $admin)
+                    @if (!empty($usersList))
+                        @foreach ($usersList as $id => $user)
                             <tr>
-                                <td> {{$admin->id}} </td>
-                                <td> {{$admin->name}} </td>
-                                <td> {{$admin->email}} </td>
+                                <td> {{$user->id}} </td>
+                                <td> {{$user->name}} </td>
+                                <td> {{$user->email}} </td>
                                 <td>
-                                    <a href="{{route('admin.edit', ['id'=>$admin->id])}}" class="btn btn-warning btn-sm">Sửa</a>
+                                    <a href="{{route('users.user.edit', ['id'=>$user->id])}}" class="btn btn-warning btn-sm">Sửa</a>
                                 </td>
                                 <td>
-                                    <a href="{{route('admin.edit', ['id'=>$admin->id])}}" class="btn btn-danger btn-sm">Xóa</a>
+                                    <a href="{{route('users.user.delete', ['id'=>$user->id])}}" class="btn btn-danger btn-sm">Xóa</a>
                                 </td>
                             </tr>
                         @endforeach

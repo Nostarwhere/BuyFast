@@ -1,4 +1,4 @@
-@extends('home.layouts.layout')
+@extends('admin.layouts.layout')
 
 @section('content')
 
@@ -30,7 +30,7 @@
                             <td> {{$product->product_description}} </td>
                             <td> {{$product->price}} </td>
                             <td>
-                                <a href="{{route('products.product.update', ['id'=>$product->id])}}" class="btn btn-warning btn-sm">Sửa</a>
+                                <a href="{{route('products.product.edit', ['id'=>$product->id])}}" class="btn btn-warning btn-sm">Sửa</a>
                             </td>
                             <td>
                                 <a href="{{route('products.product.delete', ['id'=>$product->id])}}" class="btn btn-danger btn-sm">Xóa</a>
